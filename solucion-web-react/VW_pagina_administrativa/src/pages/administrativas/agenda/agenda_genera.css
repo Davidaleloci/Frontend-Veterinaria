@@ -1,0 +1,465 @@
+:root {
+  --color-principal: #ff9900;
+  --color-principal-hover: #e07b00;
+  --color-borde: #ddd;
+  --color-verde-claro: #6fdc6f;
+  --color-celeste: #a7e0ff;
+  --color-rojo: #e74c3c;
+  --color-rojo-hover: #c0392b;
+}
+
+/* ================== CONTENEDOR PRINCIPAL ================== */
+#agenda {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.agenda-container {
+  flex: 1;
+  background: #f5f6fa;
+  border-radius: 12px;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.titulo-agenda {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* ================== LAYOUT ================== */
+.agenda-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+}
+
+/* ================== CUADRO CALENDARIO ================== */
+.calendar-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.react-calendar {
+  width: 100% !important;
+  max-width: 600px;
+  font-size: 1.1rem;
+  border: none;
+}
+
+.react-calendar__month-view__days__day {
+  padding: 1rem 0.6rem;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 1rem;
+}
+
+.react-calendar__navigation button {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* ================== FIX Y ESTILOS CALENDARIO ================== */
+.react-calendar__tile {
+  color: #333 !important;
+  background-color: #fff !important;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.react-calendar__tile abbr {
+  color: #333 !important;
+}
+
+.react-calendar__tile--now {
+  background: #ffeaa7 !important;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.react-calendar__tile--now abbr {
+  color: #000 !important;
+}
+
+.react-calendar__tile--active {
+  background: var(--color-verde-claro) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.react-calendar__tile:hover {
+  background: var(--color-celeste) !important;
+  border-radius: 8px;
+  color: #000 !important;
+  cursor: pointer;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+  color: #bbb !important;
+}
+
+/* ================== BOTONES GENERALES ================== */
+.btn-agregar,
+.btn-cerrar {
+  margin-top: 1rem;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-agregar {
+  background: var(--color-verde-claro);
+}
+.btn-agregar:hover {
+  background: #58c958;
+  transform: scale(1.05);
+}
+
+.btn-cerrar {
+  background: var(--color-rojo);
+}
+.btn-cerrar:hover {
+  background: var(--color-rojo-hover);
+  transform: scale(1.05);
+}
+
+.btn-eliminar {
+  background: var(--color-rojo);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-eliminar:hover {
+  background: var(--color-rojo-hover);
+  transform: scale(1.05);
+}
+
+/* ================== CUADRO EVENTOS ================== */
+.citas-container {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.citas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ================== TARJETAS ================== */
+.cita-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background: #fff;
+  transition: 0.25s ease;
+  width: 100%;
+}
+
+.cita-card:hover {
+  background: var(--color-celeste);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.cita-info {
+  flex: 1;
+}
+
+.btn-mas-info {
+  background: #42b5ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-mas-info:hover {
+  background: #77caff;
+  transform: scale(1.05);
+}
+
+/* ==========================================================
+   ==========  MODAL ELEGANTE COMPLETAMENTE NUEVO  ==========
+   ========================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 200px;
+  z-index: 2000;
+}
+
+.modal-content {
+  width: auto;          /* Se adapta, pero… */
+  min-width: 950px;     /* 👈 ANCHO MÍNIMO PARA QUE NO SEA ANGOSTO */
+  max-width: 95vw;      /* No se sale de la pantalla */
+  max-height: 70vh;     /* No se sale verticalmente */
+
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 35px 40px;
+  overflow-y: auto;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.20);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 35px;
+}
+
+
+
+.modal-content h3 {
+  grid-column: span 2;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Inputs */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #5ab45e;
+  box-shadow: 0 0 6px rgba(90, 180, 94, 0.4);
+}
+
+.col-izqs,
+.col-ders {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.full-width-section {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+.full-width-section h3 {
+  font-size: 1.4rem;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.label-obs {
+  grid-column: span 2;
+}
+
+.textarea-obs {
+  grid-column: span 2;
+  min-height: 120px;
+}
+
+/* -------- GRID DE SERVICIOS -------- */
+
+.service-input-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 0.8fr 1fr 1.5fr 2fr 80px;
+  gap: 10px 15px;
+  align-items: end;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.service-input-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-input-grid label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+/* Botón agregar service */
+#btnAddService {
+  background: var(--color-verde-claro);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+#btnAddService:hover:not(:disabled) {
+  background: #58c958;
+  transform: scale(1.05);
+}
+
+/* -------- TABLA DE SERVICIOS -------- */
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.service-table th,
+.service-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.service-table th {
+  background: #f5f5f5;
+}
+
+/* -------- ACCIONES MODAL -------- */
+.acciones-modal {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* ============== HEADER DE EVENTOS ============== */
+
+.citas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: #fffaf3;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.citas-header h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.btn-agregar-linda {
+  background: linear-gradient(135deg, #6fdc6f, #4caf50);
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.btn-agregar-linda:hover {
+  background: linear-gradient(135deg, #58c958, #43a047);
+  transform: scale(1.08);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ================== RESPONSIVO ================== */
+
+@media (max-width: 1200px) {
+
+  .agenda-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 95vw;
+    grid-template-columns: 1fr;
+    padding: 25px;
+    max-height: 95vh;
+  }
+
+  .full-width-section,
+  .label-obs,
+  .textarea-obs,
+  .acciones-modal {
+    grid-column: span 1;
+  }
+
+  .service-input-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-input-grid > div:nth-child(1),
+  .service-input-grid > div:nth-child(6),
+  .service-input-grid > div:nth-child(7) {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .service-input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-input-grid > div {
+    grid-column: span 1 !important;
+  }
+
+  .acciones-modal {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
