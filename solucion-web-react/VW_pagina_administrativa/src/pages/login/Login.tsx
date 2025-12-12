@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://backend-veterinaria-0h3s.onrender.com/api/api/auth/login", {
+      const response = await fetch("https://backend-veterinaria-0h3s.onrender.com/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
